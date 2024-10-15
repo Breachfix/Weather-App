@@ -1,0 +1,23 @@
+/* src/assets/styles/Home.css */
+
+.home {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .weather-display {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  .no-data {
+    color: #999;
+    font-style: italic;
+  }
