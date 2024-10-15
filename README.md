@@ -1,8 +1,8 @@
-# React + Vite
+# Weather Forecasting App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app provides current weather and forecast information for cities worldwide, using the OpenWeatherMap API. Built with React, Vite, and Axios, it follows a structured, staged approach to development, showcasing each level's progression.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Level 1: Basic Project Setup
+- Set up Vite + React project
+- Added `Home` and `About` pages with React Router
+- Created basic global styling
