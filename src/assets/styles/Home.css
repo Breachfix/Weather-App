@@ -21,3 +21,10 @@
     color: #999;
     font-style: italic;
   }
+  /* src/assets/styles/Home.css */
+
+.error {
+    color: red;
+    font-weight: bold;
+    margin-top: 15px;
+  }
