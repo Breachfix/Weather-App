@@ -1,0 +1,42 @@
+/* Navbar.css */
+
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Ensures the navbar fills the entire viewport width */
+    background-color: rgba(0, 0, 0, 0.7); /* Translucent black */
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 4px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.navbar.hidden {
+    transform: translateY(-100%);
+}
+.navbar a:hover {
+    color: #4CAF50; /* Accent color for hover */
+}
+
+.active-link {
+    border-bottom: 2px solid #4CAF50; /* Highlight active page */
+}
+/* Navbar.module.css */
+@media (max-width: 768px) {
+    .navbar a {
+        padding: 6px 12px;
+        font-size: 0.9em; /* Smaller font size on smaller screens */
+    }
+}

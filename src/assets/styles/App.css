@@ -17,3 +17,7 @@ p {
   text-align: center;
   margin-top: 10px;
 }
+/* Offset content to account for fixed navbar */
+.main-content {
+  padding-top: 60px; /* Height of navbar */
+}
