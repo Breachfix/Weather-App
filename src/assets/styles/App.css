@@ -1,5 +1,4 @@
-/* src/assets/styles/App.css */
-
+/* Global body styling */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -17,7 +16,48 @@ p {
   text-align: center;
   margin-top: 10px;
 }
+
 /* Offset content to account for fixed navbar */
 .main-content {
   padding-top: 60px; /* Height of navbar */
+}
+
+/* Light and Dark Themes */
+body.light {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 70px; /* Positions below navbar */
+  right: 15px;
+  padding: 12px;
+  font-size: 1.5rem;
+  color: inherit;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%; /* Makes it a circular button */
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+body.light .theme-toggle {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.dark .theme-toggle {
+  background-color: rgba(255, 255, 255, 0.1);
 }
