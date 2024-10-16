@@ -63,7 +63,7 @@
 
 /* Dark Mode */
 [data-theme="dark"] .navbar {
-    background-color: #3a3f47
+    background-color: rgba(58, 63, 71, 0.7); /* 80% opacity */
 }
 
 [data-theme="dark"] .nav-link {
