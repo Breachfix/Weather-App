@@ -43,6 +43,35 @@ export const WeatherProvider = ({ children }) => {
       setError("Could not fetch forecast data. Please try again.");
     }
   };
+  const fetchWeatherByLocation = async (lat, lon) => {
+    setError(null);
+    try {
+      const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather`, {
+        params: {
+          lat,
+          lon,
+          appid: import.meta.env.VITE_WEATHER_API_KEY,
+          units: unit,
+        },
+      });
+      setWeatherData(response.data);
+    } catch (err) {
+      setError("Could not fetch weather data. Please try again.");
+    }
+  };
+  
+  // Fetch location-based weather if no search is done
+  useEffect(() => {
+    if (!lastSearchedCity && navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          fetchWeatherByLocation(latitude, longitude);
+        },
+        (error) => setError("Geolocation is not enabled."),
+      );
+    }
+  }, [lastSearchedCity, unit]);
 
   const toggleUnit = () => {
     setUnit((prevUnit) => (prevUnit === 'metric' ? 'imperial' : 'metric'));
