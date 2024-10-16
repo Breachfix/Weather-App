@@ -1,12 +1,10 @@
 /* src/assets/styles/Forecast.css */
 
-.forecast {
-    margin-top: 20px;
-  }
-  
-  .forecast-container {
+.forecast-container {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
   }
   
   .forecast-day {
@@ -16,8 +14,12 @@
     width: 18%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
   
-  .forecast-day p {
-    margin: 5px 0;
+  .forecast-day.show {
+    opacity: 1;
+    transform: translateY(0);
   }

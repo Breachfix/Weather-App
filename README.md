@@ -1,8 +1,15 @@
 # Weather Forecasting App
 
-This app provides current weather and forecast information for cities worldwide, using the OpenWeatherMap API. Built with React, Vite, and Axios, it follows a structured, staged approach to development, showcasing each level's progression.
+A simple React weather app that allows users to check the current weather and a 5-day forecast for cities worldwide. Built with React, Vite, Axios, and OpenWeatherMap API.
 
-### Level 1: Basic Project Setup
-- Set up Vite + React project
-- Added `Home` and `About` pages with React Router
-- Created basic global styling
+## Features
+
+- Current weather data (temperature, humidity, wind speed)
+- 5-day forecast with daily summaries
+- Unit toggle (Celsius/Fahrenheit)
+- Error handling for invalid city names
+
+## Setup Instructions
+
+1. Clone the repository.
+2. Create an `.env` file in the root with your OpenWeatherMap API key:

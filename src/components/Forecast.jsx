@@ -1,12 +1,21 @@
 // src/components/Forecast.jsx
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { WeatherContext } from '../context/WeatherContext';
 import '../assets/styles/Forecast.css';
 
 const Forecast = () => {
   const { forecastData, unit } = useContext(WeatherContext);
 
-  // Filter to get one forecast per day (e.g., 12:00 PM)
+  useEffect(() => {
+    // Add the "show" class to each forecast card when component mounts
+    const forecastCards = document.querySelectorAll('.forecast-day');
+    forecastCards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add('show');
+      }, index * 100); // Stagger animations
+    });
+  }, [forecastData]);
+
   const dailyForecast = forecastData.filter(item => item.dt_txt.includes("12:00:00"));
 
   return (

@@ -1,9 +1,10 @@
 // src/pages/Home.jsx
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, lazy, Suspense } from 'react';
 import { WeatherContext } from '../context/WeatherContext';
 import SearchBar from '../components/SearchBar';
-import Forecast from '../components/Forecast';
 import '../assets/styles/Home.css';
+
+const Forecast = lazy(() => import('../components/Forecast'));
 
 const Home = () => {
   const { weatherData, forecastData, fetchForecast, toggleUnit, unit, error } = useContext(WeatherContext);
@@ -27,7 +28,11 @@ const Home = () => {
           <p>Wind Speed: {weatherData.wind.speed} {unit === 'metric' ? 'm/s' : 'mph'}</p>
         </div>
       )}
-      {forecastData && <Forecast />}
+      {forecastData && (
+        <Suspense fallback={<div>Loading forecast...</div>}>
+          <Forecast />
+        </Suspense>
+      )}
     </div>
   );
 };
