@@ -22,38 +22,31 @@ const Home = () => {
         Switch to {unit === 'metric' ? 'Fahrenheit' : 'Celsius'}
       </button>
       {error && <p className="error">{error}</p>}
-      <div className="weather-container">
-        <div className="weather-box sunrise-box">
-          <h3>Sunrise</h3>
-          <FontAwesomeIcon icon={faSun} className="icon-large" />
-          <p>{weatherData && new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString()}</p>
-        </div>
-
-        {weatherData && (
-          <div className="weather-box current-weather">
-            <h3>Current Weather in {weatherData.name}</h3>
-            <p className="weather-detail">
-              <FontAwesomeIcon icon={faTemperatureHigh} className="icon" />
-              Temperature: {weatherData.main.temp}°{unit === 'metric' ? 'C' : 'F'}
-            </p>
-            <p className="weather-detail">
-              <FontAwesomeIcon icon={faTint} className="icon" />
-              Humidity: {weatherData.main.humidity}%
-            </p>
-            <p className="weather-detail">
-              <FontAwesomeIcon icon={faWind} className="icon" />
-              Wind Speed: {weatherData.wind.speed} {unit === 'metric' ? 'm/s' : 'mph'}
-            </p>
+      {weatherData && (
+        <div className="weather-box">
+          <h3>Current Weather in {weatherData.name}</h3>
+          <div className="weather-detail">
+            <FontAwesomeIcon icon={faSun} className="icon" />
+            Sunrise: {new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString()}
           </div>
-        )}
-
-        <div className="weather-box sunset-box">
-          <h3>Sunset</h3>
-          <FontAwesomeIcon icon={faMoon} className="icon-large" />
-          <p>{weatherData && new Date(weatherData.sys.sunset * 1000).toLocaleTimeString()}</p>
+          <div className="weather-detail">
+            <FontAwesomeIcon icon={faTemperatureHigh} className="icon" />
+            Temperature: {weatherData.main.temp}°{unit === 'metric' ? 'C' : 'F'}
+          </div>
+          <div className="weather-detail">
+            <FontAwesomeIcon icon={faTint} className="icon" />
+            Humidity: {weatherData.main.humidity}%
+          </div>
+          <div className="weather-detail">
+            <FontAwesomeIcon icon={faWind} className="icon" />
+            Wind Speed: {weatherData.wind.speed} {unit === 'metric' ? 'm/s' : 'mph'}
+          </div>
+          <div className="weather-detail">
+            <FontAwesomeIcon icon={faMoon} className="icon" />
+            Sunset: {new Date(weatherData.sys.sunset * 1000).toLocaleTimeString()}
+          </div>
         </div>
-      </div>
-
+      )}
       {forecastData && (
         <Suspense fallback={<div>Loading forecast...</div>}>
           <Forecast />

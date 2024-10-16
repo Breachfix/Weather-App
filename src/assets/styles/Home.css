@@ -1,207 +1,64 @@
-/* src/assets/styles/Home.css */
-
 .home {
     text-align: center;
     padding: 20px;
   }
   
-  /* Main container for weather display with sunrise/sunset sections */
+  /* Main container for weather display */
   .weather-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-top: 20px;
-    padding: 15px;
-    background-color: var(--bg-color, #e0f7fa);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    gap: 20px;
-  }
-  
-  /* Sidebar styling for sunrise and sunset */
-  .weather-sidebar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 120px;
-  }
-  
-  .weather-sidebar h4 {
-    font-size: 1em;
-    color: #333;
-    margin-bottom: 8px;
-  }
-  
-  .icon-large {
-    font-size: 2em;
-    color: #ff6347;
-    margin: 8px 0;
-  }
-  
-  /* Main weather display styling */
-  .weather-display {
-    text-align: center;
-    background-color: var(--bg-color, #e0f7fa);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
-  }
-  
-  .weather-display h3 {
-    color: var(--text-color, #007bff);
-    font-size: 1.3em;
-    margin-bottom: 10px;
-  }
-  
-  .weather-detail {
-    display: flex;
-    align-items: center;
-    color: var(--text-color, #333);
-    font-size: 0.95em;
-    margin: 5px 0;
-  }
-  
-  .weather-detail .icon {
-    margin-right: 6px;
-    color: var(--icon-color, #555);
-  }
-  
-  /* Toggle button styling */
-  .unit-toggle {
-    margin: 15px;
-    padding: 8px 16px;
-    font-size: 1em;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    background-color: #4caf50;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .unit-toggle:hover {
-    background-color: #43a047;
-  }
-  
-  .unit-toggle:active {
-    background-color: #388e3c;
-  }
-  
-  /* Error message styling */
-  .error {
-    color: #e74c3c;
-    font-weight: bold;
-    margin-top: 15px;
-  }
-  
-  .no-data {
-    color: #999;
-    font-style: italic;
-  }
-  
-  /* Dark Mode */
-  [data-theme="dark"] .weather-container,
-  [data-theme="dark"] .weather-display,
-  [data-theme="dark"] .weather-sidebar {
-    background-color: var(--bg-color-dark, #333842);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  [data-theme="dark"] .weather-display h3,
-  [data-theme="dark"] .weather-sidebar h4 {
-    color: var(--text-color-dark, #00bfff);
-  }
-  
-  [data-theme="dark"] .weather-detail,
-  [data-theme="dark"] .weather-sidebar p {
-    color: var(--text-color-dark, #d1d5db);
-  }
-  
-  [data-theme="dark"] .weather-detail .icon,
-  [data-theme="dark"] .weather-sidebar .icon-large {
-    color: var(--icon-color-dark, #a8a8a8);
-  }
-  
-  [data-theme="dark"] .unit-toggle {
-    background-color: #2e7d32;
-    color: #e0e0e0;
-  }
-  
-  [data-theme="dark"] .unit-toggle:hover {
-    background-color: #27632a;
-  }
-  
-  [data-theme="dark"] .error {
-    color: #ff6b6b;
-  }/* src/assets/styles/Home.css */
-
-.home {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  /* Main container for weather display with sunrise/sunset sections */
-  .weather-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px;
+    width: 100%;
     max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-left: auto; /* Centers container */
+    margin-right: auto; /* Centers container */
   }
   
-  /* Individual box styling */
+  /* Main box styling */
   .weather-box {
-    background-color: var(--bg-color, #e0f7fa);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
+    background: #b5cfea;
+    padding: 20px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 750px; /* Covers 75% of the screen on larger devices */
+    margin: 0 auto; /* Centers the box itself within its parent */
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    transition: box-shadow 0.3s, background-color 0.3s ease, color 0.3s ease;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-around;
     align-items: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
   .weather-box h3 {
-    color: var(--text-color, #007bff);
     font-size: 1.3em;
+    color: #333;
     margin-bottom: 10px;
+    font-weight: 600;
+    flex-basis: 100%;
   }
   
   .weather-detail {
     display: flex;
     align-items: center;
-    color: var(--text-color, #333);
-    font-size: 0.95em;
-    margin: 5px 0;
+    color: #555;
+    font-size: 1em;
+    margin: 8px 0;
   }
   
   .weather-detail .icon {
     margin-right: 6px;
-    color: var(--icon-color, #555);
+    color: #ff6347;
   }
   
-  /* Sunrise and sunset specific styling */
-  .sunrise-box, .sunset-box {
-    background-color: var(--bg-color, #f0f4ff); /* Light blue */
-  }
-  
-  /* Temperature box styling */
-  .current-weather {
-    background-color: var(--bg-color, #e0f7fa); /* Light turquoise */
+  .weather-detail-item {
+    flex: 1 1 30%; /* Takes up a third of the row in desktop view */
+    text-align: center;
   }
   
   /* Toggle button styling */
@@ -238,27 +95,27 @@
     font-style: italic;
   }
   
-  /* Dark Mode */
-  [data-theme="dark"] .weather-container,
+  /* Dark Mode styling */
   [data-theme="dark"] .weather-box {
-    background-color: var(--bg-color-dark, #333842);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background: #333842;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
   }
   
-  [data-theme="dark"] .weather-box h3 {
-    color: var(--text-color-dark, #00bfff);
+  [data-theme="dark"] .weather-box:hover {
+    background: #444b55;
   }
   
+  [data-theme="dark"] .weather-box h3,
   [data-theme="dark"] .weather-detail {
-    color: var(--text-color-dark, #d1d5db);
+    color: #d1d5db;
   }
   
   [data-theme="dark"] .weather-detail .icon {
-    color: var(--icon-color-dark, #a8a8a8);
+    color: #a8a8a8;
   }
   
   [data-theme="dark"] .unit-toggle {
-    background-color: #2e7d32;
+    background-color: #595a35;
     color: #e0e0e0;
   }
   
@@ -279,23 +136,15 @@
     .weather-container {
       flex-direction: column;
       align-items: center;
-      gap: 15px;
     }
-  }
   
-  [data-theme="dark"] .no-data {
-    color: #c5c6c7;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .weather-container {
+    .weather-box {
+      max-width: 90%;
       flex-direction: column;
-      align-items: center;
-      gap: 15px;
+      text-align: center;
     }
   
-    .weather-sidebar {
-      width: 100%;
+    .weather-detail-item {
+      flex-basis: 100%;
     }
   }
