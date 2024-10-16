@@ -3,28 +3,105 @@
 .home {
     text-align: center;
     padding: 20px;
-  }
-  
-  .weather-display {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #f0f8ff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .error {
-    color: red;
-  }
-  
-  .no-data {
-    color: #999;
-    font-style: italic;
-  }
-  /* src/assets/styles/Home.css */
+}
 
+/* Weather display styling */
+.weather-display {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: var(--bg-color, #e0f7fa); /* Light mode default */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.weather-display h3 {
+    color: var(--text-color, #007bff); /* Light mode default */
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+.weather-detail {
+    display: flex;
+    align-items: center;
+    color: var(--text-color, #333); /* Light mode default */
+    font-size: 0.95em;
+}
+
+.weather-detail .icon {
+    margin-right: 6px;
+    color: var(--icon-color, #555); /* Light mode default */
+}
+
+/* Toggle button styling */
+.unit-toggle {
+    margin: 15px;
+    padding: 8px 16px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.unit-toggle:hover {
+    background-color: #43a047;
+}
+
+.unit-toggle:active {
+    background-color: #388e3c;
+}
+
+/* Error message styling */
 .error {
-    color: red;
+    color: #e74c3c;
     font-weight: bold;
     margin-top: 15px;
-  }
+}
+
+.no-data {
+    color: #999;
+    font-style: italic;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .weather-display {
+    background-color: var(--bg-color-dark, #333842); /* Dark background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Adjusted shadow */
+}
+
+[data-theme="dark"] .weather-display h3 {
+    color: var(--text-color-dark, #00bfff); /* Light blue for dark mode */
+}
+
+[data-theme="dark"] .weather-detail {
+    color: var(--text-color-dark, #d1d5db); /* Light gray for text */
+}
+
+[data-theme="dark"] .weather-detail .icon {
+    color: var(--icon-color-dark, #a8a8a8); /* Slightly lighter gray for icons */
+}
+
+[data-theme="dark"] .unit-toggle {
+    background-color: #2e7d32; /* Dark green for dark mode */
+    color: #e0e0e0; /* Light text color for dark mode */
+}
+
+[data-theme="dark"] .unit-toggle:hover {
+    background-color: #27632a;
+}
+
+[data-theme="dark"] .error {
+    color: #ff6b6b; /* Softer red for error message */
+}
+
+[data-theme="dark"] .no-data {
+    color: #c5c6c7; /* Light gray for no-data message */
+}

@@ -1,25 +1,143 @@
 /* src/assets/styles/Forecast.css */
 
+.forecast {
+    margin-top: 20px;
+}
+
 .forecast-container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .forecast-day {
-    background: #f0f8ff;
-    padding: 10px;
-    border-radius: 8px;
-    width: 18%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+    justify-content: center; /* Center the cards in the container */
+}
+
+/* Card styling */
+.forecast-day {
+    background: #b5cfea;
+    padding: 20px;
+    border-radius: 12px;
+    width: 180px;
+    min-height: 280px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
     text-align: center;
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-  
-  .forecast-day.show {
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.forecast-day.show {
     opacity: 1;
     transform: translateY(0);
-  }
+}
+
+.forecast-day:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    background: #e8f0ff;
+}
+
+.forecast-day h4 {
+    font-size: 1.2em;
+    margin: 5px 0;
+    color: #333;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.forecast-day h4 .icon {
+    margin-right: 8px;
+    color: #007bff;
+}
+
+.forecast-day img.weather-icon {
+    width: 55px;
+    height: 55px;
+    margin: 10px 0;
+}
+
+/* Temperature styling */
+.temperature {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #ff6347; /* tomato color */
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.temperature .icon {
+    margin-right: 8px;
+    color: #ff6347;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.9em;
+    gap: 6px;
+    color: #555;
+}
+
+.details p {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 6px;
+    color: #333;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .forecast-day {
+    background: #333842;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .forecast-day:hover {
+    background: #444b55;
+}
+
+[data-theme="dark"] .forecast-day h4,
+[data-theme="dark"] .temperature,
+[data-theme="dark"] .details p {
+    color: #d1d5db;
+}
+
+[data-theme="dark"] .forecast-day h4 .icon {
+    color: #00bfff; /* Light blue for dark mode */
+}
+
+[data-theme="dark"] .temperature .icon {
+    color: #ff7f50; /* Coral color for dark mode */
+}
+
+[data-theme="dark"] .icon {
+    color: #c5c6d0; /* Slightly lighter color for icons in dark mode */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .forecast-day {
+        width: 45%;
+        min-height: 220px;
+        padding: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .forecast-day {
+        width: 90%;
+        min-height: 220px;
+        padding: 16px;
+    }
+}

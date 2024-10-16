@@ -1,7 +1,6 @@
-/* Navbar.css */
+/* src/assets/styles/Navbar.css */
 
-
-  .navbar {
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -14,6 +13,7 @@
     padding: 4px 0;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar a {
@@ -23,9 +23,11 @@
     font-weight: bold;
     transition: color 0.3s;
 }
+
 .navbar.hidden {
     transform: translateY(-100%);
 }
+
 .navbar a:hover {
     color: #4CAF50; /* Accent color for hover */
 }
@@ -33,7 +35,26 @@
 .active-link {
     border-bottom: 2px solid #4CAF50; /* Highlight active page */
 }
-/* Navbar.module.css */
+
+/* Dark Mode */
+[data-theme="dark"] .navbar {
+    background-color: rgba(20, 20, 20, 0.9); /* Darker translucent background */
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .navbar a {
+    color: #cfd2d6;
+}
+
+[data-theme="dark"] .navbar a:hover {
+    color: #81c784; /* Softer green for hover effect */
+}
+
+[data-theme="dark"] .active-link {
+    border-bottom: 2px solid #81c784; /* Softer highlight for active link */
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .navbar a {
         padding: 6px 12px;
