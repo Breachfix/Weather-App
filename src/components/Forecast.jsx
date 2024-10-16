@@ -6,7 +6,7 @@ import { faTint, faSun, faMoon, faCalendarAlt, faThermometerHalf, faCloudRain } 
 import '../assets/styles/Forecast.css';
 
 const Forecast = () => {
-  const { forecastData, unit } = useContext(WeatherContext);
+  const { forecastData, currentWeather, unit } = useContext(WeatherContext);
 
   useEffect(() => {
     const forecastCards = document.querySelectorAll('.forecast-day');
@@ -17,15 +17,17 @@ const Forecast = () => {
     });
   }, [forecastData]);
 
+  // Extract sunrise and sunset from current weather data
+  const sunrise = currentWeather?.sys?.sunrise ? new Date(currentWeather.sys.sunrise * 1000).toLocaleTimeString() : 'N/A';
+  const sunset = currentWeather?.sys?.sunset ? new Date(currentWeather.sys.sunset * 1000).toLocaleTimeString() : 'N/A';
+
+  // Process the daily forecast data
   const dailyForecast = forecastData
     .filter(item => item.dt_txt.includes("12:00:00"))
-    .map(day => {
-      const sunrise = day.sys?.sunrise ? new Date(day.sys.sunrise * 1000).toLocaleTimeString() : 'N/A';
-      const sunset = day.sys?.sunset ? new Date(day.sys.sunset * 1000).toLocaleTimeString() : 'N/A';
-      const rainVolume = day.rain?.["3h"] ? day.rain["3h"] : 0; // Rain volume for the last 3 hours
-
-      return { ...day, sunrise, sunset, rainVolume };
-    });
+    .map(day => ({
+      ...day,
+      rainVolume: day.rain?.["3h"] ? day.rain["3h"] : 0
+    }));
 
   return (
     <div className="forecast">
@@ -64,11 +66,11 @@ const Forecast = () => {
               </p>
               <p>
                 <FontAwesomeIcon icon={faSun} className="icon" />
-                Sunrise: {day.sunrise}
+                Sunrise: {sunrise}
               </p>
               <p>
                 <FontAwesomeIcon icon={faMoon} className="icon" />
-                Sunset: {day.sunset}
+                Sunset: {sunset}
               </p>
             </div>
           </div>

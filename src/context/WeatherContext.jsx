@@ -1,4 +1,5 @@
-// src/context/WeatherContext.jsx
+// src/context/WeatherContext.js
+
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -6,11 +7,15 @@ export const WeatherContext = createContext();
 
 export const WeatherProvider = ({ children }) => {
   const [weatherData, setWeatherData] = useState(null);
-  const [forecastData, setForecastData] = useState(null);
+  const [forecastData, setForecastData] = useState([]);
+  const [currentWeather, setCurrentWeather] = useState({});
   const [error, setError] = useState(null);
-  const [unit, setUnit] = useState('metric'); // "metric" for Celsius, "imperial" for Fahrenheit
+  const [unit, setUnit] = useState('metric');
   const [lastSearchedCity, setLastSearchedCity] = useState(null);
 
+  const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+
+  // Fetch weather based on city
   const fetchWeather = async (city) => {
     setError(null);
     setLastSearchedCity(city);
@@ -18,23 +23,25 @@ export const WeatherProvider = ({ children }) => {
       const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather`, {
         params: {
           q: city,
-          appid: import.meta.env.VITE_WEATHER_API_KEY,
+          appid: apiKey,
           units: unit,
         },
       });
       setWeatherData(response.data);
+      setCurrentWeather(response.data); // Set current weather for sunrise/sunset
     } catch (err) {
       setError("Could not fetch weather data. Please try again.");
     }
   };
 
+  // Fetch forecast data based on city
   const fetchForecast = async (city) => {
     setError(null);
     try {
       const response = await axios.get(`https://api.openweathermap.org/data/2.5/forecast`, {
         params: {
           q: city,
-          appid: import.meta.env.VITE_WEATHER_API_KEY,
+          appid: apiKey,
           units: unit,
         },
       });
@@ -43,6 +50,8 @@ export const WeatherProvider = ({ children }) => {
       setError("Could not fetch forecast data. Please try again.");
     }
   };
+
+  // Fetch weather based on location coordinates
   const fetchWeatherByLocation = async (lat, lon) => {
     setError(null);
     try {
@@ -50,17 +59,31 @@ export const WeatherProvider = ({ children }) => {
         params: {
           lat,
           lon,
-          appid: import.meta.env.VITE_WEATHER_API_KEY,
+          appid: apiKey,
           units: unit,
         },
       });
       setWeatherData(response.data);
+      setCurrentWeather(response.data);
     } catch (err) {
       setError("Could not fetch weather data. Please try again.");
     }
   };
-  
-  // Fetch location-based weather if no search is done
+
+  // Toggle unit and refetch data for consistency
+  const toggleUnit = () => {
+    setUnit((prevUnit) => (prevUnit === 'metric' ? 'imperial' : 'metric'));
+  };
+
+  // Refetch weather and forecast data on unit change, if a city was searched
+  useEffect(() => {
+    if (lastSearchedCity) {
+      fetchWeather(lastSearchedCity);
+      fetchForecast(lastSearchedCity);
+    }
+  }, [unit]);
+
+  // Use geolocation to get weather data based on the user's current location
   useEffect(() => {
     if (!lastSearchedCity && navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -73,23 +96,12 @@ export const WeatherProvider = ({ children }) => {
     }
   }, [lastSearchedCity, unit]);
 
-  const toggleUnit = () => {
-    setUnit((prevUnit) => (prevUnit === 'metric' ? 'imperial' : 'metric'));
-  };
-
-  // Refetch weather and forecast when unit changes and there is a last searched city
-  useEffect(() => {
-    if (lastSearchedCity) {
-      fetchWeather(lastSearchedCity);
-      fetchForecast(lastSearchedCity);
-    }
-  }, [unit]);
-
   return (
     <WeatherContext.Provider
       value={{
         weatherData,
         forecastData,
+        currentWeather,
         fetchWeather,
         fetchForecast,
         toggleUnit,
