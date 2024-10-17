@@ -128,7 +128,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .forecast-day {
-        width: 45%;
+        width: 95%;
         min-height: 220px;
         padding: 18px;
     }

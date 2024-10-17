@@ -4,21 +4,40 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px 20px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+/* Class for hiding the navbar */
+.navbar.hidden {
+    transform: translateY(-100%); /* Moves navbar out of view */
+    opacity: 0; /* Fades out */
+}
 
+/* Logo styling */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 40px;
+    height: 40px;
+}
+
+/* Center navigation links */
 .navbar-links {
     display: flex;
     gap: 20px;
+    flex: 1;
+    justify-content: center;
 }
 
 .nav-link {
@@ -35,17 +54,14 @@
 .active-link {
     border-bottom: 2px solid #4CAF50;
 }
-/* Wrapper for theme toggle */
+
+/* Theme toggle button on the far right */
 .theme-toggle-container {
-    position: absolute;
-    top: 10px;
-    right: 70px;
     display: flex;
     align-items: center;
+    padding-right: 30px; /* Add padding to ensure some space from the edge */
 }
 
-
-/* Theme toggle button */
 .theme-toggle {
     background: none;
     border: none;
@@ -63,7 +79,7 @@
 
 /* Dark Mode */
 [data-theme="dark"] .navbar {
-    background-color: rgba(58, 63, 71, 0.7); /* 80% opacity */
+    background-color: rgba(58, 63, 71, 0.7);
 }
 
 [data-theme="dark"] .nav-link {
@@ -84,7 +100,17 @@
         gap: 15px;
     }
     
+    .theme-toggle-container {
+        position: absolute;
+        right: 25px; /* Adjusted right value to ensure it's inside the view on small screens */
+    }
+    
     .theme-toggle {
         font-size: 1.3rem;
+    }
+    
+    .logo-image {
+        width: 35px;
+        height: 35px;
     }
 }

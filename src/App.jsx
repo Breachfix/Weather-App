@@ -12,6 +12,7 @@ const App = () => {
     <WeatherProvider>
       <Router>
         <Navbar /> {/* Navbar now contains theme toggle */}
+        <div className="app-background"></div> {/* Add background layer */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

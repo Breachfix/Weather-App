@@ -19,15 +19,39 @@ p {
   margin-top: 10px;
 }
 
+/* Add this to your main CSS file, e.g., src/assets/styles/App.css */
+
+/* Persistent background styling */
+.app-background {
+  background: linear-gradient(
+      135deg,
+      rgba(135, 206, 250, 0.6) 0%, /* Light blue for clear sky */
+      rgba(176, 224, 230, 0.6) 50%, /* Lighter turquoise for transition */
+      rgba(240, 248, 255, 0.6) 100% /* Lightest blue for softer tone */
+  );
+  position: fixed; /* Ensures background stays fixed in viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Keep it behind all other content */
+  pointer-events: none; /* Prevent interaction */
+  background-attachment: fixed; /* Keeps background fixed during scrolling */
+}
+
 /* Offset content to account for fixed navbar */
 .main-content {
-  padding-top: 60px; /* Height of navbar */
+  padding-top: 60px; /* Adjust based on the navbar's height */
 }
 
 /* Light and Dark Themes */
-[data-theme="light"] {
-  background-color: #f0f0f0; /* Light mode background */
-  color: #000; /* Light mode text color */
+[data-theme="light"] .app-background {
+  background: linear-gradient(
+      135deg,
+      rgba(135, 206, 250, 0.6) 0%,
+      rgba(176, 224, 230, 0.6) 50%,
+      rgba(240, 248, 255, 0.6) 100%
+  );
 }
 
 [data-theme="dark"] {
@@ -35,22 +59,16 @@ p {
   color: #e0e0e0; /* Dark mode text color */
 }
 
-/* Ensure link and other elements inherit these colors */
-[data-theme="light"] .navbar, 
-[data-theme="light"] .content, 
-[data-theme="light"] .footer {
-  color: #000; /* Ensures consistent light theme color */
+/* Additional styling to maintain responsiveness */
+@media (max-width: 768px) {
+  .app-container {
+      min-height: 100vh;
+  }
 }
-
-[data-theme="dark"] .navbar, 
-[data-theme="dark"] .content, 
-[data-theme="dark"] .footer {
-  color: #e0e0e0; /* Ensures consistent dark theme color */
-}
-
-
 
 /* Responsive Design for Smaller Screens */
 @media (max-width: 480px) {
-  /* Additional responsive adjustments if needed */
+  .app-background {
+      background-attachment: fixed; /* Ensures the background stays fixed even on smaller screens */
+  }
 }
