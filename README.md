@@ -50,11 +50,14 @@ Ensure you have the following installed:
 
 ```bash
 git clone https://github.com/YourUsername/Weather-App.git
-cd WeatherApp
+cd Weather-App
+```
 
 Install Dependencies
 
+```bash
 npm install
+```
 
 Environment Variables
 
@@ -69,9 +72,9 @@ REACT_APP_WEATHER_API_KEY=your_openweather_api_key
 Run the Application
 
 Start the application in development mode:
-
+```bash
 npm start
-
+```
 The app should now be running on http://localhost:3000. Open this URL in your browser to view the app.
 
 Build for Production
@@ -87,7 +90,7 @@ The app can be deployed to any hosting platform that supports static sites, such
 📁 Project Structure
 
 Here’s a high-level look at the project structure to help you navigate the codebase:
-
+```bash
 WeatherApp/
 ├── public/                     # Public files (index.html, favicon, images)
 ├── src/
@@ -103,7 +106,7 @@ WeatherApp/
 ├── package.json                # Project dependencies and scripts
 └── README.md                   # Project documentation
 
-
+```
 
 All contributions are welcome, whether it’s bug fixes, feature enhancements, or documentation improvements!
 
