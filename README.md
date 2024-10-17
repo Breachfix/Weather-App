@@ -49,7 +49,7 @@ Ensure you have the following installed:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/YourUsername/Weather-App.git
+git clone https://github.com/Breachfix/Weather-App.git
 cd Weather-App
 ```
 
@@ -73,15 +73,16 @@ Run the Application
 
 Start the application in development mode:
 ```bash
-npm start
+npm run dev
 ```
-The app should now be running on http://localhost:3000. Open this URL in your browser to view the app.
+The app should now be running on http://localhost:5173. Open this URL in your browser to view the app.
 
 Build for Production
 
 To create an optimized production build:
-
+```bash
 npm run build
+```
 
 Deployment
 
