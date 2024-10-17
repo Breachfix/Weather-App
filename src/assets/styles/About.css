@@ -1,0 +1,66 @@
+/* General styling for informational pages */
+.about-page,
+.contact-page,
+.privacy-policy-page,
+.terms-of-service-page {
+  max-width: 90vw; /* Covers most of the screen width on smaller devices */
+  margin: 0 auto;
+  padding: 100px 20px;
+  text-align: center;
+  background: #f5f5ff; /* Light background with a subtle color */
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Heading styles */
+h2 {
+  color: #007bff;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+
+/* Paragraph styling for readability */
+p {
+  color: #555;
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Dark Mode styling for consistency with home page */
+[data-theme="dark"] .about-page,
+[data-theme="dark"] .contact-page,
+[data-theme="dark"] .privacy-policy-page,
+[data-theme="dark"] .terms-of-service-page {
+  background: #333842;
+  color: #d1d5db;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] h2 {
+  color: #00bfff;
+}
+
+[data-theme="dark"] p {
+  color: #c5c6c7;
+}
+
+/* Ensure these sections are responsive and centered */
+@media (max-width: 768px) {
+  .about-page,
+  .contact-page,
+  .privacy-policy-page,
+  .terms-of-service-page {
+    padding: 80px 15px;
+    max-width: 95vw; /* Covers almost the entire width on smaller screens */
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+}

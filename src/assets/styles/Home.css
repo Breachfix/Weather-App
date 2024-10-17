@@ -1,27 +1,23 @@
 .home {
     text-align: center;
-    padding: 100px;
-}
-
-/* Main container for weather display */
-.weather-container {
+    padding-top: 100px;
+  }
+  
+  /* Main container for weather display */
+  .weather-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90vw;
-    max-width: 1200px;
-    padding: 20px;
-    box-sizing: border-box;
-    margin: 0 auto;
-}
-
-/* Main box styling for the weather display */
-.weather-box {
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; 
+  }
+  
+  /* Main box styling for the weather display */
+  .weather-box {
     background: #b5cfea;
-    padding: 20px;
+    padding: 20px; /* Padding inside the container */
     border-radius: 12px;
-    width: 100%;
-    max-width: 90%; /* Covers 90% of the screen on larger devices */
+    width: 90%; /* Covers 90% of the screen width for consistent padding */
+    max-width: 1200px; /* Max width on larger screens */
     margin: 0 auto;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
     text-align: center;
@@ -31,36 +27,37 @@
     gap: 20px;
     justify-content: space-around;
     align-items: center;
-}
-
-.weather-box h3 {
+  }
+  
+  /* Headings and details */
+  .weather-box h3 {
     font-size: 1.3em;
     color: #333;
     margin-bottom: 10px;
     font-weight: 600;
     flex-basis: 100%;
-}
-
-.weather-detail {
+  }
+  
+  .weather-detail {
     display: flex;
     align-items: center;
     color: #555;
     font-size: 1em;
     margin: 8px 0;
-}
-
-.weather-detail .icon {
+  }
+  
+  .weather-detail .icon {
     margin-right: 6px;
     color: #ff6347;
-}
-
-.weather-detail-item {
-    flex: 1 1 20%; /* Each item takes up 20% width on desktop for more even spacing */
+  }
+  
+  .weather-detail-item {
+    flex: 1 1 20%; /* Each item takes up 20% width on desktop for even spacing */
     text-align: center;
-}
-
-/* Toggle button styling */
-.unit-toggle {
+  }
+  
+  /* Toggle button styling */
+  .unit-toggle {
     margin: 15px;
     padding: 8px 16px;
     font-size: 1em;
@@ -71,78 +68,80 @@
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.unit-toggle:hover {
+  }
+  
+  .unit-toggle:hover {
     background-color: #43a047;
-}
-
-.unit-toggle:active {
+  }
+  
+  .unit-toggle:active {
     background-color: #388e3c;
-}
-
-/* Error message styling */
-.error {
+  }
+  
+  /* Error message styling */
+  .error {
     color: #e74c3c;
     font-weight: bold;
     margin-top: 15px;
-}
-
-.no-data {
+  }
+  
+  .no-data {
     color: #999;
     font-style: italic;
-}
-
-/* Dark Mode styling */
-[data-theme="dark"] .weather-box {
+  }
+  
+  /* Dark Mode styling */
+  [data-theme="dark"] .weather-box {
     background: #333842;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-}
-
-[data-theme="dark"] .weather-box:hover {
+  }
+  
+  [data-theme="dark"] .weather-box:hover {
     background: #444b55;
-}
-
-[data-theme="dark"] .weather-box h3,
-[data-theme="dark"] .weather-detail {
+  }
+  
+  [data-theme="dark"] .weather-box h3,
+  [data-theme="dark"] .weather-detail {
     color: #d1d5db;
-}
-
-[data-theme="dark"] .weather-detail .icon {
+  }
+  
+  [data-theme="dark"] .weather-detail .icon {
     color: #a8a8a8;
-}
-
-[data-theme="dark"] .unit-toggle {
+  }
+  
+  [data-theme="dark"] .unit-toggle {
     background-color: #595a35;
     color: #e0e0e0;
-}
-
-[data-theme="dark"] .unit-toggle:hover {
+  }
+  
+  [data-theme="dark"] .unit-toggle:hover {
     background-color: #27632a;
-}
-
-[data-theme="dark"] .error {
+  }
+  
+  [data-theme="dark"] .error {
     color: #ff6b6b;
-}
-
-[data-theme="dark"] .no-data {
+  }
+  
+  [data-theme="dark"] .no-data {
     color: #c5c6c7;
-}
-
-/* Responsive adjustments for smaller devices */
-@media (max-width: 768px) {
+  }
+  
+  /* Responsive adjustments for smaller devices */
+  @media (max-width: 768px) {
     .weather-container {
-        flex-direction: column;
-        align-items: center;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
     }
-
+  
     .weather-box {
-        max-width: 95%; /* Slightly narrower on smaller screens */
-        flex-direction: column;
-        text-align: center;
+      max-width: 95%; /* Closer to full width on smaller screens */
+      flex-direction: column;
+      text-align: center;
+      padding: 15px;
     }
-
+  
     .weather-detail-item {
-        flex-basis: 100%; /* Full width for each item on small screens */
+      flex-basis: 100%; /* Full width for each item on small screens */
     }
-}
+  }

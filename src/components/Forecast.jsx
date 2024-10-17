@@ -16,6 +16,10 @@ const Forecast = () => {
       }, index * 100);
     });
   }, [forecastData]);
+  const getDayName = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-US', { weekday: 'long' });
+};
 
   // Extract sunrise and sunset from current weather data
   const sunrise = currentWeather?.sys?.sunrise ? new Date(currentWeather.sys.sunrise * 1000).toLocaleTimeString() : 'N/A';

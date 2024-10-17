@@ -1,5 +1,4 @@
-/* src/assets/styles/Navbar.css */
-
+/* Base navbar styling */
 .navbar {
     position: fixed;
     top: 0;
@@ -15,10 +14,11 @@
     z-index: 1000;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-/* Class for hiding the navbar */
+
+/* Hiding navbar on scroll down */
 .navbar.hidden {
-    transform: translateY(-100%); /* Moves navbar out of view */
-    opacity: 0; /* Fades out */
+    transform: translateY(-100%);
+    opacity: 0;
 }
 
 /* Logo styling */
@@ -40,14 +40,15 @@
     justify-content: center;
 }
 
-.nav-link {
+/* Default link styling */
+.nav-link, .footer-link {
     color: white;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
 }
 
-.nav-link:hover {
+.nav-link:hover, .footer-link:hover {
     color: #4CAF50;
 }
 
@@ -55,11 +56,11 @@
     border-bottom: 2px solid #4CAF50;
 }
 
-/* Theme toggle button on the far right */
+/* Theme toggle button styling */
 .theme-toggle-container {
     display: flex;
     align-items: center;
-    padding-right: 30px; /* Add padding to ensure some space from the edge */
+    padding-right: 30px;
 }
 
 .theme-toggle {
@@ -82,11 +83,13 @@
     background-color: rgba(58, 63, 71, 0.7);
 }
 
-[data-theme="dark"] .nav-link {
+[data-theme="dark"] .nav-link, 
+[data-theme="dark"] .footer-link {
     color: #cfd2d6;
 }
 
-[data-theme="dark"] .nav-link:hover {
+[data-theme="dark"] .nav-link:hover, 
+[data-theme="dark"] .footer-link:hover {
     color: #81c784;
 }
 
@@ -94,23 +97,84 @@
     border-bottom: 2px solid #81c784;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .navbar-links {
-        gap: 15px;
+/* Tablets and smaller laptops */
+@media (max-width: 1024px) {
+    .navbar-links .desktop-only {
+        display: none; /* Hide extra links */
     }
-    
+
     .theme-toggle-container {
         position: absolute;
-        right: 25px; /* Adjusted right value to ensure it's inside the view on small screens */
+        right: 160px;
     }
-    
+
+    .theme-toggle {
+        font-size: 1.4rem;
+    }
+
+    .logo-image {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Large mobile devices and small tablets */
+@media (max-width: 768px) {
+    .navbar-links .desktop-only {
+        display: none;
+    }
+
+    .theme-toggle-container {
+        position: absolute;
+        right: 100px;
+    }
+
     .theme-toggle {
         font-size: 1.3rem;
     }
-    
+
     .logo-image {
         width: 35px;
         height: 35px;
+    }
+}
+
+/* Standard mobile devices */
+@media (max-width: 480px) {
+    .navbar-links .desktop-only {
+        display: none;
+    }
+
+    .theme-toggle-container {
+        right: 70px;
+    }
+
+    .theme-toggle {
+        font-size: 1.2rem;
+    }
+
+    .logo-image {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 360px) {
+    .navbar-links .desktop-only {
+        display: none;
+    }
+
+    .theme-toggle-container {
+        right: 40px;
+    }
+
+    .theme-toggle {
+        font-size: 1.1rem;
+    }
+
+    .logo-image {
+        width: 25px;
+        height: 25px;
     }
 }

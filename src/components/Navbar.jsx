@@ -19,9 +19,9 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
-        setIsHidden(true); // Hide navbar when scrolling down
+        setIsHidden(true);
       } else {
-        setIsHidden(false); // Show navbar when scrolling up
+        setIsHidden(false);
       }
       lastScrollY = window.scrollY;
     };
@@ -39,8 +39,11 @@ const Navbar = () => {
         <img src="/images/logo.png" alt="WeatherApp Logo" className="logo-image" />
       </div>
       <div className="navbar-links">
-        <Link to="/" className="nav-link">Home</Link>
+        <Link to="/" className="nav-link">Weather</Link>
         <Link to="/about" className="nav-link">About</Link>
+        <Link to="/contact" className="footer-link desktop-only">Contact</Link>
+        <Link to="/privacy-policy" className="footer-link desktop-only">Privacy Policy</Link>
+        <Link to="/terms-of-service" className="footer-link desktop-only">Terms of Service</Link>
       </div>
       <div className="theme-toggle-container">
         <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
