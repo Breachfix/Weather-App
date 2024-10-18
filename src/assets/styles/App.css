@@ -46,8 +46,10 @@ footer {
   margin-top: 20px;
 }
 
-/* Light and Dark Themes */
-[data-theme="light"] .app-background {
+
+
+/* Light Mode */
+[data-theme="theme-light"] .app-background {
   background: linear-gradient(
     135deg,
     rgba(135, 206, 250, 0.6) 0%,
@@ -56,7 +58,8 @@ footer {
   );
 }
 
-[data-theme="dark"] .app-background {
+/* Dark Mode */
+[data-theme="theme-dark"] .app-background {
   background: linear-gradient(
     135deg,
     rgba(50, 50, 70, 0.8) 0%,
@@ -65,6 +68,48 @@ footer {
   );
   color: #e0e0e0;
 }
+
+/* Sunny Theme */
+[data-theme="theme-sunny"] .app-background {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 223, 186, 0.8) 0%,  /* Light orange */
+    rgba(255, 236, 179, 0.8) 50%,  /* Yellow transition */
+    rgba(255, 249, 196, 0.8) 100%  /* Light yellow */
+  );
+}
+
+/* Cloudy Theme */
+[data-theme="theme-cloudy"] .app-background {
+  background: linear-gradient(
+    135deg,
+    rgba(176, 196, 222, 0.8) 0%,  /* Light blue-gray */
+    rgba(201, 211, 225, 0.8) 50%,  /* Gray transition */
+    rgba(225, 236, 248, 0.8) 100%  /* Lightest gray-blue */
+  );
+}
+
+/* Rainy Theme */
+[data-theme="theme-rainy"] .app-background {
+  background: linear-gradient(
+    135deg,
+    rgba(100, 149, 237, 0.8) 0%,   /* Cornflower blue */
+    rgba(70, 130, 180, 0.8) 50%,   /* Steel blue transition */
+    rgba(65, 105, 225, 0.8) 100%   /* Royal blue */
+  );
+}
+
+/* Snowy Theme */
+[data-theme="theme-snowy"] .app-background {
+  background: linear-gradient(
+    135deg,
+    rgba(240, 248, 255, 0.8) 0%,  /* Alice blue */
+    rgba(224, 255, 255, 0.8) 50%, /* Lighter cyan */
+    rgba(175, 238, 238, 0.8) 100% /* Pale turquoise */
+  );
+}
+
+
 
 /* Additional styling for responsiveness */
 @media (max-width: 768px) {
