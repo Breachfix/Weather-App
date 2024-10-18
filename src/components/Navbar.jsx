@@ -1,27 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon, faCloud, faCloudRain, faSnowflake } from '@fortawesome/free-solid-svg-icons';
 import '../assets/styles/Navbar.css';
 
 const Navbar = () => {
-  const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem('theme') === 'dark');
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'theme-default');
   const [isHidden, setIsHidden] = useState(false);
   let lastScrollY = window.scrollY;
 
   useEffect(() => {
-    document.body.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
-  }, [isDarkMode]);
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
-  const toggleTheme = () => setIsDarkMode((prevMode) => !prevMode);
+  const toggleTheme = () => {
+    const themes = ['theme-light', 'theme-dark', 'theme-sunny', 'theme-cloudy', 'theme-rainy', 'theme-snowy'];
+    const currentIndex = themes.indexOf(theme);
+    const nextTheme = themes[(currentIndex + 1) % themes.length]; // Cycle through themes
+    setTheme(nextTheme);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
-        setIsHidden(true);
+        setIsHidden(true); // Hide navbar when scrolling down
       } else {
-        setIsHidden(false);
+        setIsHidden(false); // Show navbar when scrolling up
       }
       lastScrollY = window.scrollY;
     };
@@ -47,7 +52,15 @@ const Navbar = () => {
       </div>
       <div className="theme-toggle-container">
         <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
-          <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} />
+          <FontAwesomeIcon 
+            icon={
+              theme === 'theme-sunny' ? faSun :
+              theme === 'theme-cloudy' ? faCloud :
+              theme === 'theme-rainy' ? faCloudRain :
+              theme === 'theme-snowy' ? faSnowflake :
+              theme === 'theme-dark' ? faMoon : faSun
+            } 
+          />
         </button>
       </div>
     </nav>

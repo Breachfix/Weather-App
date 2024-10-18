@@ -1,4 +1,3 @@
-// src/components/Forecast.jsx
 import React, { useContext, useEffect } from 'react';
 import { WeatherContext } from '../context/WeatherContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,10 +15,12 @@ const Forecast = () => {
       }, index * 100);
     });
   }, [forecastData]);
+
+  // Function to get the name of the day (e.g., Monday, Tuesday)
   const getDayName = (dateString) => {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('en-US', { weekday: 'long' });
-};
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { weekday: 'long' });
+  };
 
   // Extract sunrise and sunset from current weather data
   const sunrise = currentWeather?.sys?.sunrise ? new Date(currentWeather.sys.sunrise * 1000).toLocaleTimeString() : 'N/A';
@@ -35,14 +36,14 @@ const Forecast = () => {
 
   return (
     <div className="forecast">
-      <h3>5-Day Forecast</h3>
+      <h3>Next 5-Day Forecast</h3>
       <div className="forecast-container">
         {dailyForecast.map((day, index) => (
           <div key={index} className="forecast-day">
-            {/* Date with icon */}
+            {/* Display the day of the week with an icon */}
             <div className="forecast-date">
               <FontAwesomeIcon icon={faCalendarAlt} className="icon" />
-              <h4>{new Date(day.dt_txt).toLocaleDateString()}</h4>
+              <h4>{getDayName(day.dt_txt)}</h4> {/* Here is where the day name is displayed */}
             </div>
 
             {/* Weather condition icon */}

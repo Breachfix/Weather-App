@@ -28,7 +28,24 @@ p {
   margin-bottom: 15px;
 }
 
-/* Dark Mode styling for consistency with home page */
+/* Light Mode styling */
+[data-theme="light"] .about-page,
+[data-theme="light"] .contact-page,
+[data-theme="light"] .privacy-policy-page,
+[data-theme="light"] .terms-of-service-page {
+  background: #f5f5ff; /* Light background */
+  color: #333;
+}
+
+[data-theme="light"] h2 {
+  color: #007bff; /* Blue accent in light mode */
+}
+
+[data-theme="light"] p {
+  color: #555;
+}
+
+/* Dark Mode styling */
 [data-theme="dark"] .about-page,
 [data-theme="dark"] .contact-page,
 [data-theme="dark"] .privacy-policy-page,
@@ -39,14 +56,48 @@ p {
 }
 
 [data-theme="dark"] h2 {
-  color: #00bfff;
+  color: #00bfff; /* Light blue accent in dark mode */
 }
 
 [data-theme="dark"] p {
   color: #c5c6c7;
 }
 
-/* Ensure these sections are responsive and centered */
+/* Cloudy Mode styling */
+[data-theme="cloudy"] .about-page,
+[data-theme="cloudy"] .contact-page,
+[data-theme="cloudy"] .privacy-policy-page,
+[data-theme="cloudy"] .terms-of-service-page {
+  background: linear-gradient(135deg, #a0aec0, #718096); /* Gray-blue tones for cloudy theme */
+  color: #2d3748;
+}
+
+[data-theme="cloudy"] h2 {
+  color: #4a5568; /* Darker gray for headings in cloudy mode */
+}
+
+[data-theme="cloudy"] p {
+  color: #2d3748;
+}
+
+/* Sunset Mode styling */
+[data-theme="sunset"] .about-page,
+[data-theme="sunset"] .contact-page,
+[data-theme="sunset"] .privacy-policy-page,
+[data-theme="sunset"] .terms-of-service-page {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b); /* Orange-pink tones for sunset */
+  color: #fff;
+}
+
+[data-theme="sunset"] h2 {
+  color: #ffefba; /* Light yellow for headings in sunset mode */
+}
+
+[data-theme="sunset"] p {
+  color: #fff;
+}
+
+/* Responsive styling for smaller screens */
 @media (max-width: 768px) {
   .about-page,
   .contact-page,
@@ -62,5 +113,23 @@ p {
 
   p {
     font-size: 1em;
+  }
+}
+
+/* Additional responsiveness for very small screens */
+@media (max-width: 480px) {
+  .about-page,
+  .contact-page,
+  .privacy-policy-page,
+  .terms-of-service-page {
+    padding: 60px 10px; /* Adjust padding for smaller screens */
+  }
+
+  h2 {
+    font-size: 1.3em; /* Smaller headings for smaller devices */
+  }
+
+  p {
+    font-size: 0.9em; /* Slightly smaller text for better fit */
   }
 }

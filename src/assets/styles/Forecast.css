@@ -1,5 +1,3 @@
-/* src/assets/styles/Forecast.css */
-
 .forecast {
     margin-top: 20px;
 }
@@ -13,7 +11,6 @@
 
 /* Card styling */
 .forecast-day {
-    background: #b5cfea;
     padding: 20px;
     border-radius: 12px;
     width: 180px;
@@ -36,9 +33,9 @@
 
 .forecast-day:hover {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    background: #e8f0ff;
 }
 
+/* Headings */
 .forecast-day h4 {
     font-size: 1.2em;
     margin: 5px 0;
@@ -63,7 +60,7 @@
 .temperature {
     font-size: 1.4em;
     font-weight: bold;
-    color: #ff6347; /* tomato color */
+    color: #ff6347; /* Tomato color */
     margin: 8px 0;
     display: flex;
     align-items: center;
@@ -74,6 +71,7 @@
     color: #ff6347;
 }
 
+/* Details section */
 .details {
     display: flex;
     flex-direction: column;
@@ -97,32 +95,119 @@
     color: #333;
 }
 
+/* Theme-based background styles for the forecast cards */
+
+/* Light Mode */
+[data-theme="theme-light"] .forecast-day {
+    background: #b5cfea;
+}
+
+[data-theme="theme-light"] .forecast-day:hover {
+    background: #e8f0ff;
+}
+
 /* Dark Mode */
-[data-theme="dark"] .forecast-day {
+[data-theme="theme-dark"] .forecast-day {
     background: #333842;
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
 }
 
-[data-theme="dark"] .forecast-day:hover {
+[data-theme="theme-dark"] .forecast-day:hover {
     background: #444b55;
 }
 
-[data-theme="dark"] .forecast-day h4,
-[data-theme="dark"] .temperature,
-[data-theme="dark"] .details p {
+[data-theme="theme-dark"] .forecast-day h4,
+[data-theme="theme-dark"] .temperature,
+[data-theme="theme-dark"] .details p {
     color: #d1d5db;
 }
 
-[data-theme="dark"] .forecast-day h4 .icon {
+[data-theme="theme-dark"] .forecast-day h4 .icon {
     color: #00bfff; /* Light blue for dark mode */
 }
 
-[data-theme="dark"] .temperature .icon {
+[data-theme="theme-dark"] .temperature .icon {
     color: #ff7f50; /* Coral color for dark mode */
 }
 
-[data-theme="dark"] .icon {
-    color: #c5c6d0; /* Slightly lighter color for icons in dark mode */
+/* Sunny Theme */
+[data-theme="theme-sunny"] .forecast-day {
+    background: #ffeb99;
+    box-shadow: 0 6px 14px rgba(255, 223, 186, 0.4);
+}
+
+[data-theme="theme-sunny"] .forecast-day:hover {
+    background: #fff3cc;
+}
+
+[data-theme="theme-sunny"] .forecast-day h4,
+[data-theme="theme-sunny"] .temperature,
+[data-theme="theme-sunny"] .details p {
+    color: #333;
+}
+
+[data-theme="theme-sunny"] .temperature .icon {
+    color: #ffa500; /* Sunny orange */
+}
+
+/* Cloudy Theme */
+[data-theme="theme-cloudy"] .forecast-day {
+    background: #d3dce6;
+    box-shadow: 0 6px 14px rgba(176, 196, 222, 0.4);
+}
+
+[data-theme="theme-cloudy"] .forecast-day:hover {
+    background: #e3e8f1;
+}
+
+[data-theme="theme-cloudy"] .forecast-day h4,
+[data-theme="theme-cloudy"] .temperature,
+[data-theme="theme-cloudy"] .details p {
+    color: #333;
+}
+
+[data-theme="theme-cloudy"] .temperature .icon {
+    color: #6c757d; /* Cloudy gray */
+}
+
+/* Rainy Theme */
+[data-theme="theme-rainy"] .forecast-day {
+    background: #a8d8f0;
+    box-shadow: 0 6px 14px rgba(100, 149, 237, 0.4);
+}
+
+[data-theme="theme-rainy"] .forecast-day:hover {
+    background: #c4e4f9;
+}
+
+[data-theme="theme-rainy"] .forecast-day h4,
+[data-theme="theme-rainy"] .temperature,
+[data-theme="theme-rainy"] .details p {
+    color: #333;
+}
+
+[data-theme="theme-rainy"] .temperature .icon {
+    color: #007bff; /* Rainy blue */
+}
+
+/* Snowy Theme */
+[data-theme="theme-snowy"] .forecast-day {
+    background: #f0f8ff;
+    box-shadow: 0 6px 14px rgba(240, 248, 255, 0.6);
+}
+
+[data-theme="theme-snowy"] .forecast-day:hover {
+    background: #e6f0f8;
+}
+
+[data-theme="theme-snowy"] .forecast-day h4,
+[data-theme="theme-snowy"] .temperature,
+[data-theme="theme-snowy"] .details p {
+    color: #333;
+}
+
+[data-theme="theme-snowy"] .temperature .icon {
+    color: #00ced1; /* Snowy cyan */
 }
 
 /* Responsive adjustments */
