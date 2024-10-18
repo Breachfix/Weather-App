@@ -63,8 +63,9 @@ Environment Variables
 
 Create a .env file in the root directory and add your API key(s):
 
+```bash
 REACT_APP_WEATHER_API_KEY=your_openweather_api_key
-
+```
 	Note: You can get a free API key from OpenWeather.
 
 🚀 Usage
